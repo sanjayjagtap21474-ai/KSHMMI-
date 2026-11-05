@@ -1,0 +1,389 @@
+.page {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    var(--color-warm-ivory) 0%,
+    var(--color-cream) 50%,
+    var(--color-pastel-pink) 100%
+  );
+  padding: var(--spacing-lg);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.paperTexture {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(139, 69, 19, 0.02) 2px,
+    rgba(139, 69, 19, 0.02) 4px
+  );
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: linear-gradient(
+    135deg,
+    var(--color-antique-white) 0%,
+    var(--color-cream) 100%
+  );
+  border: 2px solid var(--color-lavender-dark);
+  border-radius: var(--radius-lg);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-text-dark);
+}
+
+.headerControls {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.iconButton {
+  background: none;
+  border: 2px solid var(--color-lavender-dark);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+  color: var(--color-text-dark);
+}
+
+.iconButton:hover {
+  background: var(--color-pastel-pink);
+  border-color: var(--color-dusty-rose);
+  transform: scale(1.1);
+}
+
+.mapContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  background: linear-gradient(
+    135deg,
+    var(--color-antique-white) 0%,
+    var(--color-cream) 100%
+  );
+  border: 4px double var(--color-sage-green);
+  border-radius: var(--radius-lg);
+  position: relative;
+  box-shadow: var(--shadow-float);
+  min-height: 600px;
+}
+
+.mapContainer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/textures/paper-texture.png');
+  background-size: cover;
+  opacity: 0.1;
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+}
+
+.mapTitle {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-text-dark);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+}
+
+.mapTitle::after {
+  content: '✿';
+  display: block;
+  font-size: 1.5rem;
+  color: var(--color-sage-green);
+  margin-top: var(--spacing-sm);
+}
+
+.gardenMap {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-cream) 0%,
+    var(--color-antique-white) 50%,
+    var(--color-pastel-pink) 100%
+  );
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-lavender-dark);
+  overflow: hidden;
+}
+
+.path {
+  position: absolute;
+  background: var(--color-sage-green);
+  opacity: 0.3;
+  border-radius: var(--radius-full);
+}
+
+.path1 {
+  width: 8px;
+  height: 200px;
+  top: 50%;
+  left: 20%;
+  transform: rotate(30deg);
+}
+
+.path2 {
+  width: 8px;
+  height: 250px;
+  top: 30%;
+  left: 40%;
+  transform: rotate(-20deg);
+}
+
+.path3 {
+  width: 8px;
+  height: 180px;
+  top: 60%;
+  left: 50%;
+  transform: rotate(45deg);
+}
+
+.path4 {
+  width: 8px;
+  height: 220px;
+  top: 20%;
+  left: 70%;
+  transform: rotate(15deg);
+}
+
+.location {
+  position: absolute;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.location:hover {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+.locationIcon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.locationName {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  color: var(--color-text-dark);
+  background: var(--color-warm-ivory);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-lavender-dark);
+  white-space: nowrap;
+}
+
+.locationTooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-text-dark);
+  color: var(--color-warm-ivory);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+  margin-bottom: 0.5rem;
+}
+
+.location:hover .locationTooltip {
+  opacity: 1;
+}
+
+/* Location positions */
+.rosePath {
+  top: 15%;
+  left: 10%;
+}
+
+.butterflyMeadow {
+  top: 40%;
+  left: 35%;
+}
+
+.forgottenCorner {
+  top: 60%;
+  left: 60%;
+}
+
+.littleCottage {
+  top: 25%;
+  right: 15%;
+}
+
+.wishingWell {
+  bottom: 15%;
+  right: 25%;
+}
+
+/* Discovery indicators */
+.discoveryBadge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 24px;
+  height: 24px;
+  background: var(--color-dusty-rose);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-label);
+  font-weight: 600;
+}
+
+.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.locked::after {
+  content: '🔒';
+  position: absolute;
+  font-size: 1.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.decorativeFlowers {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.flower1 {
+  top: 10%;
+  left: 5%;
+}
+
+.flower2 {
+  top: 80%;
+  right: 5%;
+}
+
+.flower3 {
+  bottom: 10%;
+  left: 15%;
+}
+
+.progressBar {
+  background: var(--color-warm-ivory);
+  border: 2px solid var(--color-lavender-dark);
+  border-radius: var(--radius-full);
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  color: var(--color-text-dark);
+}
+
+.progressFill {
+  width: 100px;
+  height: 8px;
+  background: var(--color-lavender-dark);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progressValue {
+  height: 100%;
+  background: var(--color-sage-green);
+  transition: width var(--transition-normal);
+}
+
+@media (max-width: 1024px) {
+  .gardenMap {
+    height: 600px;
+  }
+
+  .locationIcon {
+    font-size: 2.5rem;
+  }
+
+  .locationName {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: var(--spacing-md);
+  }
+
+  .header {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .mapContainer {
+    padding: var(--spacing-md);
+    min-height: 500px;
+  }
+
+  .gardenMap {
+    height: 450px;
+  }
+
+  .locationIcon {
+    font-size: 2rem;
+  }
+
+  .locationName {
+    font-size: 0.625rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .locationTooltip {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+}

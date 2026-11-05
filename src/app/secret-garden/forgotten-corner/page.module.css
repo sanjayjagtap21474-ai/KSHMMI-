@@ -1,0 +1,368 @@
+.page {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    var(--color-warm-ivory) 0%,
+    var(--color-cream) 50%,
+    var(--color-lavender) 100%
+  );
+  padding: var(--spacing-lg);
+  position: relative;
+}
+
+.paperTexture {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(139, 69, 19, 0.02) 2px,
+    rgba(139, 69, 19, 0.02) 4px
+  );
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: linear-gradient(
+    135deg,
+    var(--color-antique-white) 0%,
+    var(--color-cream) 100%
+  );
+  border: 2px solid var(--color-lavender-dark);
+  border-radius: var(--radius-lg);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-text-dark);
+}
+
+.headerControls {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.iconButton {
+  background: none;
+  border: 2px solid var(--color-lavender-dark);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+  color: var(--color-text-dark);
+}
+
+.iconButton:hover {
+  background: var(--color-pastel-pink);
+  border-color: var(--color-dusty-rose);
+  transform: scale(1.1);
+}
+
+.cornerArea {
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-cream) 0%,
+    var(--color-lavender) 100%
+  );
+  border: 4px double var(--color-sage-green);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-float);
+  margin-bottom: var(--spacing-xl);
+}
+
+.cornerArea::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/textures/paper-texture.png');
+  background-size: cover;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.gardenArch {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4rem;
+  opacity: 0.6;
+}
+
+.overgrownPlants {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.plant1 {
+  top: 20%;
+  left: 10%;
+}
+
+.plant2 {
+  top: 40%;
+  right: 15%;
+}
+
+.plant3 {
+  bottom: 20%;
+  left: 20%;
+}
+
+.plant4 {
+  bottom: 30%;
+  right: 25%;
+}
+
+.hiddenObject {
+  position: absolute;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hiddenObject:hover {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+.objectIcon {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.hiddenObject.discovered .objectIcon {
+  opacity: 0.5;
+  filter: grayscale(0.5);
+}
+
+.hiddenObject.discovered::after {
+  content: '✓';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 28px;
+  height: 28px;
+  background: var(--color-sage-green);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.clueModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  background: linear-gradient(
+    135deg,
+    var(--color-antique-white) 0%,
+    var(--color-cream) 100%
+  );
+  border: 4px double var(--color-sage-green);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: var(--shadow-float);
+}
+
+.modalIcon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.modalTitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.modalClue {
+  font-family: var(--font-handwritten);
+  font-size: 1.25rem;
+  color: var(--color-brown);
+  margin-bottom: var(--spacing-lg);
+  transform: rotate(-2deg);
+  padding: var(--spacing-md);
+  background: var(--color-warm-ivory);
+  border: 2px solid var(--color-lavender-dark);
+  border-radius: var(--radius-md);
+}
+
+.closeButton {
+  margin-top: var(--spacing-md);
+}
+
+.instructions {
+  text-align: center;
+  padding: var(--spacing-lg);
+  background: linear-gradient(
+    135deg,
+    var(--color-antique-white) 0%,
+    var(--color-cream) 100%
+  );
+  border: 2px solid var(--color-lavender-dark);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-dark);
+  line-height: 1.8;
+}
+
+.puzzleSection {
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  background: linear-gradient(
+    135deg,
+    var(--color-antique-white) 0%,
+    var(--color-cream) 100%
+  );
+  border: 3px double var(--color-sage-green);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.puzzleTitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-lg);
+}
+
+.objectProgress {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.objectIndicator {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--color-lavender-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  opacity: 0.3;
+  transition: all var(--transition-fast);
+}
+
+.objectIndicator.discovered {
+  opacity: 1;
+  border-color: var(--color-sage-green);
+  background: var(--color-sage-green);
+}
+
+.puzzleLocked {
+  padding: var(--spacing-lg);
+  background: var(--color-warm-ivory);
+  border: 2px dashed var(--color-lavender-dark);
+  border-radius: var(--radius-lg);
+  opacity: 0.6;
+}
+
+.puzzleUnlocked {
+  padding: var(--spacing-lg);
+  background: linear-gradient(
+    135deg,
+    var(--color-pastel-pink) 0%,
+    var(--color-lavender) 100%
+  );
+  border: 2px solid var(--color-sage-green);
+  border-radius: var(--radius-lg);
+  animation: unlock 0.5s ease;
+}
+
+@keyframes unlock {
+  0% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.puzzleInput {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--color-lavender-dark);
+  background: var(--color-warm-ivory);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+.puzzleInput:focus {
+  outline: none;
+  border-color: var(--color-dusty-rose);
+}
+
+@media (max-width: 768px) {
+  .cornerArea {
+    height: 400px;
+  }
+
+  .objectIcon {
+    font-size: 2rem;
+  }
+}

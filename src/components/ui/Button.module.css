@@ -1,0 +1,144 @@
+.button {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--color-brown);
+  background: linear-gradient(135deg, var(--color-antique-white) 0%, var(--color-cream) 100%);
+  color: var(--color-text-dark);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-paper);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--color-pastel-pink) 0%, var(--color-lavender) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  z-index: -1;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-paper-hover);
+}
+
+.button:hover::before {
+  opacity: 0.3;
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--color-dusty-rose) 0%, var(--color-mauve) 100%);
+  color: white;
+  border-color: var(--color-brown);
+}
+
+.primary::before {
+  background: linear-gradient(135deg, var(--color-pastel-pink-dark) 0%, var(--color-lavender-dark) 100%);
+}
+
+.secondary {
+  background: transparent;
+  border-color: var(--color-lavender-dark);
+  color: var(--color-text-dark);
+}
+
+.secondary::before {
+  background: var(--color-lavender);
+}
+
+.outline {
+  background: transparent;
+  border-color: var(--color-brown);
+  color: var(--color-text-dark);
+}
+
+.outline::before {
+  background: var(--color-cream);
+}
+
+.ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--color-text-dark);
+  box-shadow: none;
+}
+
+.ghost::before {
+  background: var(--color-pastel-pink);
+}
+
+.small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.withFlower {
+  position: relative;
+}
+
+.withFlower::after {
+  content: '✿';
+  position: absolute;
+  right: -0.5rem;
+  top: -0.5rem;
+  font-size: 1.5rem;
+  color: var(--color-sage-green);
+  transform: rotate(15deg);
+}
+
+.vintage {
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% calc(100% - 8px),
+    95% 100%,
+    90% calc(100% - 6px),
+    85% 100%,
+    80% calc(100% - 10px),
+    75% 100%,
+    70% calc(100% - 6px),
+    65% 100%,
+    60% calc(100% - 8px),
+    55% 100%,
+    50% calc(100% - 6px),
+    45% 100%,
+    40% calc(100% - 10px),
+    35% 100%,
+    30% calc(100% - 6px),
+    25% 100%,
+    20% calc(100% - 8px),
+    15% 100%,
+    10% calc(100% - 6px),
+    5% 100%,
+    0% calc(100% - 8px)
+  );
+}

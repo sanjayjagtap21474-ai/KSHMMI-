@@ -1,0 +1,174 @@
+.page {
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+}
+
+.title::after {
+  content: '✿';
+  display: block;
+  font-size: 1.5rem;
+  color: var(--color-sage-green);
+  margin-top: var(--spacing-sm);
+}
+
+.subtitle {
+  font-family: var(--font-handwritten);
+  font-size: 1.5rem;
+  color: var(--color-dusty-rose);
+  transform: rotate(-2deg);
+}
+
+.storySection {
+  padding: var(--spacing-2xl);
+  background: linear-gradient(
+    135deg,
+    var(--color-antique-white) 0%,
+    var(--color-cream) 100%
+  );
+  border: 3px double var(--color-sage-green);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-2xl);
+  position: relative;
+}
+
+.storySection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/textures/paper-texture.png');
+  background-size: cover;
+  opacity: 0.1;
+  pointer-events: none;
+  border-radius: var(--radius-lg);
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  position: relative;
+}
+
+.sectionTitle::after {
+  content: '✿';
+  display: block;
+  font-size: 1.25rem;
+  color: var(--color-sage-green);
+  margin-top: var(--spacing-sm);
+}
+
+.storyText {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  color: var(--color-text-dark);
+  line-height: 2;
+  margin-bottom: var(--spacing-lg);
+}
+
+.storyText:first-of-type::first-letter {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  float: left;
+  line-height: 1;
+  margin-right: 0.5rem;
+  color: var(--color-dusty-rose);
+}
+
+.handwrittenQuote {
+  font-family: var(--font-handwritten);
+  font-size: 1.5rem;
+  color: var(--color-brown);
+  text-align: center;
+  margin: var(--spacing-xl) 0;
+  transform: rotate(-2deg);
+  padding: var(--spacing-lg);
+  border: 2px solid var(--color-lavender-dark);
+  border-radius: var(--radius-lg);
+  background: var(--color-warm-ivory);
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}
+
+.valueCard {
+  padding: var(--spacing-xl);
+  background: var(--color-warm-ivory);
+  border: 2px solid var(--color-lavender-dark);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: all var(--transition-normal);
+}
+
+.valueCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-paper-hover);
+}
+
+.valueIcon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.valueTitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.valueDescription {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+.botanicalDivider {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--color-sage-green);
+  margin: var(--spacing-2xl) 0;
+  opacity: 0.5;
+}
+
+.pressFlower {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.5;
+  transform: rotate(15deg);
+}
+
+@media (max-width: 768px) {
+  .storySection {
+    padding: var(--spacing-lg);
+  }
+
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+}

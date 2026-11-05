@@ -1,0 +1,191 @@
+.card {
+  background: linear-gradient(135deg, var(--color-antique-white) 0%, var(--color-cream) 100%);
+  border: 2px solid var(--color-lavender-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-paper);
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-paper-hover);
+  transform: translateY(-2px);
+}
+
+.paperTexture {
+  position: relative;
+}
+
+.paperTexture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/textures/paper-texture.png');
+  background-size: cover;
+  opacity: 0.15;
+  pointer-events: none;
+  border-radius: var(--radius-lg);
+}
+
+.tornEdge {
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% calc(100% - 10px),
+    95% 100%,
+    90% calc(100% - 8px),
+    85% 100%,
+    80% calc(100% - 12px),
+    75% 100%,
+    70% calc(100% - 6px),
+    65% 100%,
+    60% calc(100% - 10px),
+    55% 100%,
+    50% calc(100% - 8px),
+    45% 100%,
+    40% calc(100% - 12px),
+    35% 100%,
+    30% calc(100% - 6px),
+    25% 100%,
+    20% calc(100% - 10px),
+    15% 100%,
+    10% calc(100% - 8px),
+    5% 100%,
+    0% calc(100% - 10px)
+  );
+}
+
+.botanicalFrame {
+  position: relative;
+  padding: var(--spacing-xl);
+  border: 3px double var(--color-sage-green);
+  background: linear-gradient(
+    135deg,
+    var(--color-antique-white) 0%,
+    var(--color-cream) 100%
+  );
+}
+
+.botanicalFrame::before,
+.botanicalFrame::after {
+  content: '❀';
+  position: absolute;
+  font-size: 2rem;
+  color: var(--color-sage-green);
+  opacity: 0.6;
+}
+
+.botanicalFrame::before {
+  top: -1rem;
+  left: -1rem;
+}
+
+.botanicalFrame::after {
+  bottom: -1rem;
+  right: -1rem;
+}
+
+.pressedFlower {
+  position: relative;
+}
+
+.pressedFlower::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, var(--color-pastel-pink) 0%, transparent 70%);
+  opacity: 0.5;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.handwrittenNote {
+  position: relative;
+}
+
+.handwrittenNote::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  width: 2px;
+  height: 80%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-lavender-dark),
+    transparent
+  );
+  transform: translateY(-50%) rotate(-5deg);
+}
+
+.vintageStamp {
+  position: relative;
+}
+
+.vintageStamp::after {
+  content: '✦';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 1.5rem;
+  color: var(--color-gold);
+  opacity: 0.7;
+}
+
+.header {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-lavender-dark);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-text-dark);
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-family: var(--font-label);
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.content {
+  color: var(--color-text-dark);
+  line-height: 1.8;
+}
+
+.footer {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-lavender-dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.compact {
+  padding: var(--spacing-md);
+}
+
+.spacious {
+  padding: var(--spacing-2xl);
+}
+
+.interactive {
+  cursor: pointer;
+}
+
+.interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-float);
+}
